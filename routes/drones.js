@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// require the Drone model here
+const droneController = require("./../controllers/droneController")
 
-router.get('/drones', (req, res, next) => {
-  // Iteration #2: List the drones
-  // ... your code here
-});
+// require the Drone model here
+// Iteración 2. 
+router.get("/drones", droneController.getAllDrones)
 
 router.get('/drones/create', (req, res, next) => {
   // Iteration #3: Add a new drone
