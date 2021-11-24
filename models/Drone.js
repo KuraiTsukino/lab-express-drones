@@ -1,11 +1,8 @@
-// Iteration #1
-
 // 1. Importaciones.
 
 const mongoose = require("mongoose")
 
 // 2. Schema
-// Requisitos para crear un libro.
 
 const droneSchema = mongoose.Schema({
     name: String,

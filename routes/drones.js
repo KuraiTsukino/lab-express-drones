@@ -1,35 +1,29 @@
-const express = require('express');
-const router = express.Router();
+// 1. Importaciones
+
+const express = require("express")
+const router = express.Router()
 
 const droneController = require("./../controllers/droneController")
 
-// require the Drone model here
-// Iteración 2. 
-router.get("/drones", droneController.getAllDrones)
+// 2. Ruteo con base URL
 
-router.get('/drones/create', (req, res, next) => {
-  // Iteration #3: Add a new drone
-  // ... your code here
-});
+// Creación de drones.
+// Vista para el formulario
+router.get("/create", droneController.viewCreateDrone)
+// Crear libro, ruta para el formulario. Para recibir datos del formulario
+router.post("/create", droneController.createDrone)
 
-router.post('/drones/create', (req, res, next) => {
-  // Iteration #3: Add a new drone
-  // ... your code here
-});
+// Lectura de todos los drones.
+router.get("/", droneController.getAllDrones)
 
-router.get('/drones/:id/edit', (req, res, next) => {
-  // Iteration #4: Update the drone
-  // ... your code here
-});
+// Editar un drone.
+router.get("/drones/:droneID/edit", droneController.viewEditDrone)
+router.post("/drones/:droneID/edit", droneController.editDrone)
 
-router.post('/drones/:id/edit', (req, res, next) => {
-  // Iteration #4: Update the drone
-  // ... your code here
-});
+//Borrar un drone.
 
-router.post('/drones/:id/delete', (req, res, next) => {
-  // Iteration #5: Delete the drone
-  // ... your code here
-});
+router.post("drones/:droneID/delete", droneController.deleteDrone)
 
-module.exports = router;
+// 3. Exportación
+
+module.exports = router
